@@ -12,12 +12,15 @@ import org.junit.Test;
 
 import AbstractFactory.rectangle;
 import javafx.scene.transform.Translate;
+import sun.tools.jar.resources.jar;
 
 public class ViewTest {
 	
 	/*
 	 * 该方法有缺陷
 	 * 求一个数组中元素和为指定值的子串
+	 * 求一个数组中元素和为指定值的子串
+	 * 求一个数组中元素和为指定值的字串
 	 * 例如：a = {5,2,3,4};
 	 * sum = 6
 	 * 字串为:{2,4}
@@ -72,7 +75,7 @@ public class ViewTest {
 	}
 	
 	/*
-	 * 输入一个字符串，打印该字符串的所有排列，子串不算
+	 * 输入一个字符数组，打印该字符数组的所有排列，子串不算
 	 */
 	@Test
 	public void test2(){
@@ -106,7 +109,7 @@ public class ViewTest {
 	/*
 	 * 输入一个正整数数组，把这些数字全部排列起来组成一个数字
 	 * 输出其中最小的一个数字
-	 * 思路：先把这些数字转换为字符串进行整合，整合完成后转换成数字比较大小
+	 * 思路：先把这些数字转换为字符串进行整合，整合完成后转换成数字存入一个整型数组，然后比较大小
 	 */
 	@Test
 	public void test4(){
@@ -167,4 +170,45 @@ public class ViewTest {
 		}
 		System.out.print(min);
 	}
+	/*
+	 * 输入一个整型数组，数组中有正数也有负数，一个或连续的几个组成一个子串，输出所有子串和的最大值
+	 */
+	@Test
+	public void test5(){
+		int[] a = new int[]{6,-5,-7,-5,3,-4,-8,9};
+		getMaxNum(a);
+	}
+	public void getMaxNum(int[] a){
+		int max = -2147483648;//这个值是int类型的最小值，2的-31次方
+		int begin = 0;//因为是连续的，所以有一个开始下标和一个终点下标
+		int end = 0;
+		int curnum = 0;//存储子串相加的值
+		for (int i = 0; i < a.length; i++) {
+			curnum += a[i];
+			//若该子元素是最大的，记录其下标，及每发现一个最大的，都要记录其坐标和更换最大值
+			if (curnum>max) {
+				max = curnum;
+				begin = i;
+				end = i;
+			}
+			for (int j = i+1; j < a.length; j++) {
+				curnum += a[j];
+				//每发现一个最大的，都要记录其坐标和更换最大值
+				if (curnum>max) {
+					max = curnum;
+					begin = i;
+					end = j;
+				}
+			}
+			//一轮比较完后，累加值初始化为0，以便进行下一轮比较
+			curnum = 0;
+		}
+		for (int i = begin; i <= end; i++) {
+			System.out.print(a[i]+" ");
+		}
+		System.out.print("\n");
+		System.out.println(max);
+		
+	}
+	
 }
