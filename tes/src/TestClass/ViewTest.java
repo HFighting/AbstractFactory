@@ -3,6 +3,7 @@ package TestClass;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Stack;
 
 import org.junit.Test;
 
@@ -11,7 +12,11 @@ import AbstractFactory.rectangle;
 public class ViewTest {
 	
 	/*
+<<<<<<< HEAD
 	 * 求一个数组中元素和为指定值的子串
+=======
+	 * 求一个数组中元素和为指定值的字串
+>>>>>>> 4bb67f053a156e7bff573527339f3d73e986111e
 	 * 例如：a = {5,2,3,4};
 	 * sum = 6
 	 * 字串为:{2,4}

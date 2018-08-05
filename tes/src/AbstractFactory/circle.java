@@ -6,5 +6,8 @@ public class circle extends shap{
 	public void draw() {
 		System.out.println("draw a circle");
 	}
+	public void getR(){
+		System.out.println("半径为r");
+	}
 
 }
