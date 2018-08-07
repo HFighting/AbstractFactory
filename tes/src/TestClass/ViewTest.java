@@ -10,6 +10,8 @@ import java.util.stream.Stream;
 
 import org.junit.Test;
 
+import com.sun.org.apache.regexp.internal.REUtil;
+
 import AbstractFactory.rectangle;
 import javafx.scene.transform.Translate;
 import sun.tools.jar.resources.jar;
@@ -210,5 +212,41 @@ public class ViewTest {
 		System.out.println(max);
 		
 	}
+	
+	/*
+	 * 数组中有一个数字出现的次数超过了数组长度的一半,输出该数字,若没有,则不输出
+	 * 例如：[1,2,5,2,6,2,2,2,2,3],长度为10,2出现了6次,输出2
+	 */
+	@Test
+	public void test6(){
+		int[] a = new int[]{1,2,5,2,6,2,2,2,2,3};
+		findMaxCount(a);
+	}
+	public void findMaxCount(int[] a){
+		int maxcount = 0;//需要为每一个元素建立一个计数器
+		int length = a.length;
+		while (length-->0) {
+			int b = a[length-1];
+			//循环比较，计数
+			for (int i = 0; i < a.length; i++) {
+				if (a[i]==b) {
+					maxcount +=1;
+					//若发现次数超过规定次数，则返回，不在循环
+					if (maxcount>=a.length/2) {
+						System.out.println(b);
+						return;
+					}
+				}
+			}
+		}
+		System.out.println("NOT");
+	}
+	
+	/*
+	 * 输入两个整数列，第一列是栈的压栈顺序，试着判断第二列是否是栈的出栈顺序
+	 * 例如：压栈顺序为1，2，3，4，5
+	 * 第二列为1，3，5，2，4，该列不可能为栈的出栈顺序，返回NOT
+	 */
+	
 	
 }
