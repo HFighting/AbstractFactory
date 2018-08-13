@@ -232,7 +232,7 @@ public class ViewTest {
 			for (int i = 0; i < a.length; i++) {
 				if (a[i]==b) {
 					maxcount +=1;
-					//若发现次数超过规定次数,则返回,不在循环
+					//若发现次数超过规定次数，则返回，不在循环
 					if (maxcount>=a.length/2) {
 						System.out.println(b);
 						return;
@@ -244,6 +244,7 @@ public class ViewTest {
 	}
 	
 	/*
+<<<<<<< HEAD
 	 * 输入两个整数列,第一列是栈的压栈顺序,试着判断第二列是否是栈的出栈顺序
 	 * 例如：压栈顺序为1,2,3,4,5
 	 * 第二列为1,3,5,2,4,该列不可能为栈的出栈顺序,返回NOT
@@ -292,4 +293,5 @@ public class ViewTest {
         }
         return arrays;
     }
+
 }
